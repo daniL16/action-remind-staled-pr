@@ -7,7 +7,7 @@ github::get_unactive_pr(){
 	body=$(curl -sSL -H "$GITHUB_API_HEADER" -H "Authorization: token ${GITHUB_TOKEN}" "$GITHUB_API_URI/repos/$GITHUB_REPOSITORY/pulls")
 	pulls=$(echo "$body" | jq --raw-output '.[] | {date_upd: .updated_at, url: .html_url, draft: .draft, state: .state, title: .title } | @base64')
 	days=0
-	local -r inactives=()
+	declare -a inactives
  	for p in $pulls; do
         	pull="$(echo "$p" | base64 -d)"
         	last_update=$(echo "$pull" | jq --raw-output '.date_upd')
