@@ -14,7 +14,6 @@ github::get_unactive_pr(){
         	days_since_last_update=$(( ( end_ts - start_ts )/(60*60*24) ))
         	if [[ "$days_since_last_update" -ge "${INACTIVE_DAYS}" ]]; then
            		pr=$(echo "$pull" | jq --raw-output '("[" + .title + "]" + " " + .url)')
-			echo "$pr"
         		rocket::sendNotification "$pr"
 		fi
  	done
