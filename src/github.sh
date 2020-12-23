@@ -12,8 +12,6 @@ github::get_unactive_pr(){
         	start_ts=$(date -d $last_update '+%s')
         	end_ts=$(date -d 'now' '+%s')
         	days_since_last_update=$(( ( end_ts - start_ts )/(60*60*24) ))
-		echo $days_since_last_update
-		echo $INACTIVE_DAYS
         	if [[ "$days_since_last_update" -ge "${INACTIVE_DAYS}" ]]; then
            		$message=$(echo "$pull" | jq --raw-output '(.title + "." + .url)')
         		echo $message
