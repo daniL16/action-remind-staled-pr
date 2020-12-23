@@ -1,0 +1,24 @@
+name: 'Set approved label and automerge'
+description: 'Set approved label and automerge'
+
+inputs:
+   GITHUB_TOKEN:
+      description: 'Github token'
+      required: true
+   days_since_update:
+      descriptin: 'Days from last update'
+      required: false
+      default: 30
+   ROCKET_CHAT_HOOK:
+      description: 'Rocket chat channel hook'
+      required: true
+
+runs:
+   using: 'docker'
+   image: 'Dockerfile'
+   args:
+      - ${{ inputs.GITHUB_TOKEN }}
+      - ${{ inputs.ROCKET_CHAT_HOOK }}
+branding:
+   icon: 'tag'
+   color: 'green'
