@@ -16,6 +16,6 @@ days=1
         days_since_last_update=$(( ( end_ts - start_ts )/(60*60*24) ))
         if [[ "$days_since_last_update" -ge "$days" ]]; then
            message=$(echo "$pull" | jq --raw-output '(.title + "." + .url)')
-	   echo $message
+	   rocket::sendMessage $message
         fi
  done
