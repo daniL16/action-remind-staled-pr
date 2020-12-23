@@ -12,7 +12,7 @@ github::get_unactive_pr(){
         	pull="$(echo "$p" | base64 -d)"
         	last_update=$(echo "$pull" | jq --raw-output '.date_upd')
         	start_ts=$(date -d $last_update '+%s')
-        	end_ts=$(date -d'now' '+%s')
+        	end_ts=$(date -d 'now' '+%s')
         	days_since_last_update=$(( ( end_ts - start_ts )/(60*60*24) ))
         	if [[ "$days_since_last_update" -ge "$days" ]]; then
            		message=$(echo "$pull" | jq --raw-output '(.title + "." + .url)')
