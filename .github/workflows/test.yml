@@ -13,5 +13,6 @@ jobs:
       - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ROCKET_CHAT_HOOK: "jx3Xu73EQWA54bZwh/PBaQsa9NAD4zfCXLzvfWPpvPELi5jDfStqTfmuzuxkYqkhMv" 
+          ROCKET_CHAT_HOOK: "jx3Xu73EQWA54bZwh/PBaQsa9NAD4zfCXLzvfWPpvPELi5jDfStqTfmuzuxkYqkhMv"
+	  days_since_update: 0
           message: 'Test'
