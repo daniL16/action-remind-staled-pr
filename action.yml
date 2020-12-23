@@ -12,6 +12,9 @@ inputs:
    ROCKET_CHAT_HOOK:
       description: 'Rocket chat channel hook'
       required: true
+   message:
+      description: 'Message'
+      required: true
 
 runs:
    using: 'docker'
@@ -19,6 +22,8 @@ runs:
    args:
       - ${{ inputs.GITHUB_TOKEN }}
       - ${{ inputs.ROCKET_CHAT_HOOK }}
+      - ${{ inputs.days_since_update }}
+      - ${{ inputs.message }}
 branding:
    icon: 'tag'
    color: 'green'
