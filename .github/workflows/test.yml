@@ -1,6 +1,8 @@
 name: test
 
-on: [pull_request]
+on:
+  - pull_request
+  - push
 
 jobs:
   labeler:
@@ -11,5 +13,5 @@ jobs:
       - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ROCKET_CHAT_HOOK:'jx3Xu73EQWA54bZwh/PBaQsa9NAD4zfCXLzvfWPpvPELi5jDfStqTfmuzuxkYqkhMv' 
-          message:'Test'
+          ROCKET_CHAT_HOOK: "jx3Xu73EQWA54bZwh/PBaQsa9NAD4zfCXLzvfWPpvPELi5jDfStqTfmuzuxkYqkhMv" 
+          message: 'Test'
