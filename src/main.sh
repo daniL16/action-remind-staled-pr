@@ -9,7 +9,7 @@ main(){
    export ROCKET_CHAT_HOOK="$2"
    export INACTIVE_DAYS="$3"
 
-   rocket::sendNotification $4
+   github::get_unactive_pr
 
    exit $?
 }
